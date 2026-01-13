@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://3kltsrij3sj0"]
+
+[ext_resource type="PackedScene" uid="uid://d0kaspc18y3cm" path="res://Assets/Models/Treasures/Caps/cap.blend" id="1_ohi2x"]
+[ext_resource type="Texture2D" uid="uid://bywim5wkakimq" path="res://Assets/Models/Treasures/Caps/Textures/CHEERBEER.png" id="2_0qkao"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0qkao"]
+height = 0.33544922
+radius = 1.1801758
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qkao"]
+albedo_texture = ExtResource("2_0qkao")
+
+[node name="Treasure" type="Node3D"]
+
+[node name="RoughShape" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoughShape"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08227539, 0)
+shape = SubResource("CylinderShape3D_0qkao")
+debug_color = Color(0.16470589, 0.5176471, 1, 1)
+
+[node name="cap" parent="." instance=ExtResource("1_ohi2x")]
+
+[node name="Cylinder" parent="cap" index="0"]
+material_override = SubResource("StandardMaterial3D_0qkao")
+
+[editable path="cap"]

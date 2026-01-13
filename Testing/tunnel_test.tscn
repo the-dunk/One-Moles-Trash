@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjnkbbpfrfew6"]
+
+[ext_resource type="Script" uid="uid://c60xg72o0jl8q" path="res://Testing/tunnel_testing.gd" id="1_2f03x"]
+[ext_resource type="PackedScene" uid="uid://ckd1ap7ilp4jb" path="res://Assets/Models/Player/mole.blend" id="1_ygoft"]
+[ext_resource type="PackedScene" uid="uid://3kltsrij3sj0" path="res://Testing/Treasure Test/treasure.tscn" id="3_685hr"]
+[ext_resource type="Texture2D" uid="uid://da1mxo4kjxfpm" path="res://Assets/Models/Treasures/Caps/Textures/PEYGO.png" id="4_bjfl1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_685hr"]
+render_priority = 1
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bgq7"]
+next_pass = SubResource("StandardMaterial3D_685hr")
+cull_mode = 2
+albedo_color = Color(0.5358625, 0.29059133, 0.09342391, 1)
+stencil_mode = 2
+stencil_flags = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3bgq7"]
+height = 3.1984863
+radius = 0.9765625
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjfl1"]
+albedo_color = Color(0.37826732, 0.63268614, 0.9475904, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sa1k4"]
+render_priority = 1
+next_pass = SubResource("StandardMaterial3D_bjfl1")
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhp20"]
+next_pass = SubResource("StandardMaterial3D_sa1k4")
+transparency = 1
+cull_mode = 1
+no_depth_test = true
+albedo_color = Color(1, 1, 1, 0)
+stencil_mode = 2
+stencil_flags = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jogn8"]
+albedo_texture = ExtResource("4_bjfl1")
+
+[node name="World" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.2443274, 0, 0, 0, 1, 0, -10.860901, 0)
+use_collision = true
+size = Vector3(50, 22.454224, 50)
+material = SubResource("StandardMaterial3D_3bgq7")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.97418, 0)
+script = ExtResource("1_2f03x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2010498, 0)
+shape = SubResource("CylinderShape3D_3bgq7")
+disabled = true
+
+[node name="mole" parent="CharacterBody3D" instance=ExtResource("1_ygoft")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Hat" parent="CharacterBody3D/mole" index="0"]
+visible = false
+
+[node name="Apron" parent="CharacterBody3D/mole" index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="CharacterBody3D/mole/Armature" index="0"]
+bones/1/rotation = Quaternion(0.00010140002, -0.0008361302, -0.0025597806, 0.99999636)
+bones/2/position = Vector3(0.6922364, 1.5001401, 1.65042e-07)
+bones/2/rotation = Quaternion(0.00060134014, 0.01889971, -0.8299759, 0.5574788)
+bones/3/rotation = Quaternion(-0.007668724, 0.0042195437, -0.12023469, 0.99270695)
+bones/4/rotation = Quaternion(-0.7138138, 0.029523525, 0.6992632, -0.0250847)
+bones/6/position = Vector3(-0.6922364, 1.5001401, -1.6504198e-07)
+bones/6/rotation = Quaternion(-0.003718529, 0.019242661, 0.8065993, 0.5907737)
+bones/7/rotation = Quaternion(0.008727296, 0.006658483, 0.17320126, 0.9848254)
+bones/8/rotation = Quaternion(0.70653826, -0.02834425, 0.70653874, -0.028343964)
+
+[node name="Joint" type="Node3D" parent="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Joint"]
+transform = Transform3D(1, 0, 0, 0, 0.96802515, 0.2508531, 0, -0.2508531, 0.96802515, 0, 7.937852, 11.936589)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CharacterBody3D"]
+radius = 13.163224
+rings = 12
+material = SubResource("StandardMaterial3D_dhp20")
+
+[node name="Hands" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05)
+
+[node name="Treasure2" parent="." instance=ExtResource("3_685hr")]
+transform = Transform3D(0.99869615, -0.02775374, -0.042847585, 0.035902455, 0.9785204, 0.20299935, 0.03629327, -0.20427305, 0.9782409, 0.45958424, -12.016108, -10.836063)
+
+[node name="Cylinder" parent="Treasure2/cap" index="0"]
+material_override = SubResource("StandardMaterial3D_jogn8")
+
+[node name="Treasure" parent="." instance=ExtResource("3_685hr")]
+transform = Transform3D(0.9172479, -0.21838865, -0.33311072, 0.36965835, 0.7782048, 0.50769085, 0.14835444, -0.5888155, 0.7945359, -15.538246, -11.804678, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.76891994, 0.63934505, 0, -0.63934505, 0.76891994, 0, 27.202332, 24.368965)
+
+[editable path="CharacterBody3D/mole"]
+[editable path="Treasure2"]
+[editable path="Treasure2/cap"]

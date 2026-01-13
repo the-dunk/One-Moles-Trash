@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b21h6luuhcln6"]
+
+[ext_resource type="PackedScene" uid="uid://baujymphu65km" path="res://player.tscn" id="1_f3sb7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f3sb7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f3sb7"]
+noise = SubResource("FastNoiseLite_f3sb7")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sb7"]
+albedo_color = Color(0.34117648, 0.27058825, 0.23529412, 1)
+albedo_texture = SubResource("NoiseTexture2D_f3sb7")
+uv1_triplanar = true
+
+[sub_resource type="VoxelGeneratorFlat" id="VoxelGeneratorFlat_aqk2v"]
+
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_036b0"]
+
+[node name="World" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("world_voxels") instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.035065, 0)
+shoulder_offset = 4.0
+look_sensitivity_horizontal = 3
+tool_reach = 20.0
+world_voxels = NodePath("../VoxelTerrain")
+
+[node name="VoxelViewer" type="VoxelViewer" parent="Player"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.76891994, 0.63934505, 0, -0.63934505, 0.76891994, 0, 2.5816984, 7.744731)
+
+[node name="VoxelTerrain" type="VoxelTerrain" parent="."]
+material_override = SubResource("StandardMaterial3D_f3sb7")
+generator = SubResource("VoxelGeneratorFlat_aqk2v")
+mesher = SubResource("VoxelMesherTransvoxel_036b0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8966608, 0)
