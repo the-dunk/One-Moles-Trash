@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://baujymphu65km"]
+[gd_scene format=3 uid="uid://baujymphu65km"]
 
 [ext_resource type="Script" uid="uid://eiq2ilgm0vxt" path="res://node_3d.gd" id="1_4flbx"]
 
@@ -14,24 +14,24 @@ height = 8.0
 transparency = 1
 albedo_color = Color(1, 0, 0, 0.30980393)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=1299959174]
 script = ExtResource("1_4flbx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=475535854]
 shape = SubResource("CylinderShape3D_onrkg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=546202706]
 mesh = SubResource("CapsuleMesh_i3pqv")
 
-[node name="Joint" type="Node3D" parent="."]
+[node name="Joint" type="Node3D" parent="." unique_id=183536815]
 
-[node name="Camera3D" type="Camera3D" parent="Joint"]
+[node name="Camera3D" type="Camera3D" parent="Joint" unique_id=1139845279]
 transform = Transform3D(1, 0, 0, 0, 0.96802515, 0.2508531, 0, -0.2508531, 0.96802515, 0, 7.937852, 11.936589)
 
-[node name="Hands" type="Node3D" parent="."]
+[node name="Hands" type="Node3D" parent="." unique_id=1707598864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05)
 
-[node name="Pointer" type="CSGSphere3D" parent="."]
+[node name="Pointer" type="CSGSphere3D" parent="." unique_id=946214667]
 radius = 1.0
 radial_segments = 16
 rings = 12

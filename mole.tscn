@@ -1,19 +1,17 @@
 [gd_scene format=3 uid="uid://d2jsnnnu6t0gr"]
 
 [ext_resource type="PackedScene" uid="uid://df7nqgvu87uvq" path="res://Assets/Models/Player/mole.glb" id="1_dmcpu"]
-[ext_resource type="PackedScene" uid="uid://brd5mttxyud3i" path="res://Testing/Mining/2.5d/tool.tscn" id="2_fo5de"]
+[ext_resource type="PackedScene" uid="uid://dcpsitoeocccd" path="res://Assets/Types/Digging/Tool/Drill/drill.tscn" id="2_fo5de"]
 
 [node name="mole" unique_id=537811908 instance=ExtResource("1_dmcpu")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="ToolPivot" type="Node3D" parent="." index="0" unique_id=1354238112]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Tool" parent="ToolPivot" index="0" unique_id=1413793430 instance=ExtResource("2_fo5de")]
-transform = Transform3D(-1, 8.742278e-08, 0, 8.742278e-08, 1, 8.742278e-08, 7.642742e-15, 8.742278e-08, -1, 0, 0, -1.879)
+[node name="Tool" type="Node3D" parent="ToolPivot" index="0" unique_id=1356184217]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7.977832e-08, 0.11930847, 1.8251152)
 
-[node name="drill" parent="ToolPivot/Tool" index="0" unique_id=541519996]
-transform = Transform3D(-1, 1.509958e-07, 6.600236e-15, 0, -4.371139e-08, 1, 1.509958e-07, 1, 4.371139e-08, 0, 0, 0)
+[node name="Drill" parent="ToolPivot/Tool" index="0" unique_id=281459712 instance=ExtResource("2_fo5de")]
 
 [node name="Hat" parent="." index="1" unique_id=2046407131]
 visible = false
@@ -32,9 +30,9 @@ bones/8/rotation = Quaternion(0.7071065, -2.794223e-07, 0.70710707, 1.0048657e-1
 
 [node name="FABRIK3D" type="FABRIK3D" parent="Armature/Skeleton3D" index="2" unique_id=1515735838]
 setting_count = 3
-settings/0/target_node = NodePath("../../../ToolPivot/Tool/drill/Hand_Left")
-settings/1/target_node = NodePath("../../../ToolPivot/Tool/drill/Hand_Right")
-settings/2/target_node = NodePath("../../../ToolPivot/Tool/drill/Cone")
+settings/0/target_node = NodePath("../../../ToolPivot/Tool/Drill/HandRight")
+settings/1/target_node = NodePath("../../../ToolPivot/Tool/Drill/HandLeft")
+settings/2/target_node = NodePath("../../../ToolPivot/Tool/Drill")
 settings/0/root_bone_name = "Shoulder.L"
 settings/0/root_bone = 2
 settings/0/end_bone_name = "Hand.L"
@@ -64,5 +62,4 @@ settings/1/joints/1/limitation = null
 settings/2/joints/0/rotation_axis = 3
 settings/2/joints/0/limitation = null
 
-[editable path="ToolPivot/Tool"]
-[editable path="ToolPivot/Tool/drill"]
+[editable path="ToolPivot/Tool/Drill"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GroundMaterial" format=3 uid="uid://bu6b5t72i4qlr"]
+
+[ext_resource type="Script" uid="uid://bv22kkidfa7cj" path="res://Assets/Types/Digging/Ground Material/ground_material.gd" id="1_qr65x"]
+
+[resource]
+script = ExtResource("1_qr65x")
+name = "Stone"
+hardness = 5.0
+has_gravity = true
+metadata/_custom_type_script = "uid://bv22kkidfa7cj"

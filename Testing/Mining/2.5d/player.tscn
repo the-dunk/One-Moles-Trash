@@ -45,7 +45,7 @@ parameters/Mainrun/blend_position = 0.0
 [node name="mole" parent="." unique_id=537811908 instance=ExtResource("2_bvyei")]
 
 [node name="Skeleton3D" parent="mole/Armature" parent_id_path=PackedInt32Array(537811908, 242390902) index="0" unique_id=204767748]
-bones/1/rotation = Quaternion(-0.00933069, -0.016381789, -0.0012133203, 0.99982154)
+bones/1/rotation = Quaternion(-0.009271274, -0.05848331, -0.0016058877, 0.99824405)
 
 [node name="CameraCenter" type="Node3D" parent="." unique_id=1891727410]
 transform = Transform3D(1, 0, 0, 0, 0.99673396, 0.08075562, 0, -0.08075562, 0.99673396, 0, 1.4513245, 8.185242)
@@ -53,6 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99673396, 0.08075562, 0, -0.08075562, 0.99
 [node name="PlayerCamera" type="Camera3D" parent="CameraCenter" unique_id=2046832457]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
+[node name="VoxelViewer" type="VoxelViewer" parent="." unique_id=1981307708]
+
 [editable path="mole"]
-[editable path="mole/ToolPivot/Tool"]
-[editable path="mole/ToolPivot/Tool/drill"]
+[editable path="mole/ToolPivot/Tool/Drill"]

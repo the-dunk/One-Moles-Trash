@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dcpsitoeocccd"]
+
+[ext_resource type="Script" uid="uid://dmfvla6bsmu5k" path="res://Assets/Types/Digging/Tool/tool.gd" id="1_7ulql"]
+[ext_resource type="PackedScene" uid="uid://dkjcbu7vjre5b" path="res://Assets/temporary/drill.glb" id="2_d74hq"]
+[ext_resource type="VoxelMeshSDF" uid="uid://byixxrlyn2tlu" path="res://Assets/Types/Digging/Tool/Drill/drill_sdf.res" id="2_ycb3k"]
+[ext_resource type="PackedScene" uid="uid://dw8fjbmhqwix4" path="res://Assets/temporary/drill_shape.glb" id="3_8b241"]
+
+[node name="Drill" type="Node3D" unique_id=281459712]
+script = ExtResource("1_7ulql")
+move_speed = 5.0
+strength = 10.0
+min_dig_shape = ExtResource("2_ycb3k")
+max_dig_shape = ExtResource("2_ycb3k")
+metadata/_custom_type_script = "uid://dmfvla6bsmu5k"
+
+[node name="model" parent="." unique_id=541519996 instance=ExtResource("2_d74hq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="HandRight" type="Node3D" parent="." unique_id=2063352971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74526644, -0.65137506, 0)
+
+[node name="HandLeft" type="Node3D" parent="." unique_id=139229532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.745, -0.651, 0)
+
+[node name="drill_shape" parent="." unique_id=1639459647 instance=ExtResource("3_8b241")]
+visible = false
+
+[editable path="drill_shape"]
