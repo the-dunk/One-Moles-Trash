@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Terrain" load_steps=2 format=3 uid="uid://jw751flah4pa"]
+
+[ext_resource type="Script" uid="uid://bbn4gjcrhmtgj" path="res://Assets/Types/Digging/Terrain/terrain.gd" id="1_4p6h5"]
+
+[resource]
+script = ExtResource("1_4p6h5")
+metadata/_custom_type_script = "uid://bbn4gjcrhmtgj"

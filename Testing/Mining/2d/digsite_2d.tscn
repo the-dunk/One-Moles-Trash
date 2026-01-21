@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxbjepdfduysr"]
+
+[ext_resource type="PackedScene" uid="uid://b1b45cx5eu0ob" path="res://Testing/Mining/2d/player.tscn" id="2_euiff"]
+[ext_resource type="PackedScene" uid="uid://cwuhnev8504y5" path="res://Testing/Mining/2d/ground.tscn" id="2_y1lem"]
+
+[node name="Digsite" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_euiff")]
+
+[node name="Ground" parent="." instance=ExtResource("2_y1lem")]
+
+[editable path="Player"]
+[editable path="Player/Tool"]

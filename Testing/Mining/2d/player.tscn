@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1b45cx5eu0ob"]
+
+[ext_resource type="Script" uid="uid://f2ygiy38dtgd" path="res://Testing/Mining/2d/scripts/player.gd" id="1_qhw3d"]
+[ext_resource type="Texture2D" uid="uid://dskqiiemtj3kx" path="res://icon.svg" id="2_8njg4"]
+[ext_resource type="Script" uid="uid://dwitucxqqndex" path="res://2d_camera.gd" id="3_berwj"]
+[ext_resource type="PackedScene" uid="uid://cuqgkcbsgt0nf" path="res://Testing/Mining/2d/tool.tscn" id="4_rv002"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvp7q"]
+radius = 67.62396
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 7
+script = ExtResource("1_qhw3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lvp7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8njg4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("3_berwj")
+
+[node name="Tool" parent="." instance=ExtResource("4_rv002")]
+
+[editable path="Tool"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xueg0gbjjq2h"]
+
+[ext_resource type="PackedScene" uid="uid://dkjcbu7vjre5b" path="res://Assets/temporary/drill.glb" id="1_0n8n4"]
+
+[node name="drill" unique_id=541519996 instance=ExtResource("1_0n8n4")]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 0, 0, 0)
+
+[node name="Cone" parent="." index="0" unique_id=79967959]
+transform = Transform3D(0.691, 0, 0, 0, 0.5, 0, 0, 0, 0.691, 0, 0, 0)
+
+[node name="Hand_Right" type="Node3D" parent="." index="1" unique_id=1534300217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99572754, -0.6497803, 0)
+
+[node name="Hand_Left" type="Node3D" parent="." index="2" unique_id=861823923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, -0.65, 0)

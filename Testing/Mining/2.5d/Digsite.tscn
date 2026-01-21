@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://3hr4iyhruxpm"]
+
+[ext_resource type="PackedScene" uid="uid://bxjj0jlr0t27r" path="res://Testing/Mining/2.5d/player.tscn" id="1_vh3mv"]
+
+[node name="Digsite" type="Node3D" unique_id=1438219402]
+
+[node name="Player" parent="." unique_id=799526121 instance=ExtResource("1_vh3mv")]
+camera_distance_threshold = 8.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=306909262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5326962, 1.423929)
+light_color = Color(1, 0.85490197, 0.19607843, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=51479168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86557007, -3.617677, -2.8143616)
+use_collision = true
+size = Vector3(17.044495, 1, 19.023499)

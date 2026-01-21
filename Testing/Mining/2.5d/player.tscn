@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bxjj0jlr0t27r"]
+
+[ext_resource type="Script" uid="uid://c8onnfnrwg2er" path="res://Testing/Mining/2.5d/scripts/player.gd" id="1_bvyei"]
+[ext_resource type="PackedScene" uid="uid://d2jsnnnu6t0gr" path="res://mole.tscn" id="2_bvyei"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3u6rr"]
+height = 3.246582
+radius = 0.8989258
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jelxe"]
+animation = &"2D Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vcow5"]
+animation = &"2D Walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_8am7y"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_jelxe")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_vcow5")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5t3vq"]
+graph_offset = Vector2(-122.625854, -45.528183)
+nodes/Mainrun/node = SubResource("AnimationNodeBlendSpace1D_8am7y")
+nodes/Mainrun/position = Vector2(0, 180)
+node_connections = [&"output", 0, &"Mainrun"]
+
+[node name="Player" type="CharacterBody3D" unique_id=226369656 node_paths=PackedStringArray("tool_pivot")]
+axis_lock_linear_z = true
+axis_lock_angular_z = true
+script = ExtResource("1_bvyei")
+tool_pivot = NodePath("mole/ToolPivot")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1256483857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13842773, 0)
+shape = SubResource("CylinderShape3D_3u6rr")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=3934328]
+root_node = NodePath("../mole")
+tree_root = SubResource("AnimationNodeBlendTree_5t3vq")
+anim_player = NodePath("../mole/AnimationPlayer")
+parameters/Mainrun/blend_position = 0.0
+
+[node name="mole" parent="." unique_id=537811908 instance=ExtResource("2_bvyei")]
+
+[node name="Skeleton3D" parent="mole/Armature" parent_id_path=PackedInt32Array(537811908, 242390902) index="0" unique_id=204767748]
+bones/1/rotation = Quaternion(-0.00933069, -0.016381789, -0.0012133203, 0.99982154)
+
+[node name="CameraCenter" type="Node3D" parent="." unique_id=1891727410]
+transform = Transform3D(1, 0, 0, 0, 0.99673396, 0.08075562, 0, -0.08075562, 0.99673396, 0, 1.4513245, 8.185242)
+
+[node name="PlayerCamera" type="Camera3D" parent="CameraCenter" unique_id=2046832457]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[editable path="mole"]
+[editable path="mole/ToolPivot/Tool"]
+[editable path="mole/ToolPivot/Tool/drill"]

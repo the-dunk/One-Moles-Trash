@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuqgkcbsgt0nf"]
+
+[ext_resource type="Texture2D" uid="uid://ceqr45pfgsprt" path="res://Assets/temporary/garbagedrill.png" id="1_v8fss"]
+
+[node name="Tool" type="Node2D"]
+
+[node name="ToolArea" type="Area2D" parent="."]
+position = Vector2(49, 0)
+rotation = -1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="ToolArea"]
+z_index = 2
+texture_filter = 1
+position = Vector2(0, 35)
+scale = Vector2(2.359375, 2.359375)
+texture = ExtResource("1_v8fss")
+
+[node name="MineShape" type="Polygon2D" parent="ToolArea"]
+z_index = 1
+color = Color(1, 0.6745098, 0, 0.32156864)
+polygon = PackedVector2Array(0, 137, 60, 42, 70, -24, -70, -24, -60, 42)
+
+[node name="MineArea" type="CollisionPolygon2D" parent="ToolArea"]
+polygon = PackedVector2Array(0, 137, 60, 42, 70, -24, -70, -24, -60, 42)

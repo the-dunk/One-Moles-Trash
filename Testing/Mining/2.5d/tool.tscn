@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://brd5mttxyud3i"]
+
+[ext_resource type="PackedScene" uid="uid://xueg0gbjjq2h" path="res://Testing/Mining/2.5d/drill.tscn" id="1_sd7wt"]
+
+[node name="Tool" type="Node3D" unique_id=606971443]
+
+[node name="drill" parent="." unique_id=541519996 instance=ExtResource("1_sd7wt")]
